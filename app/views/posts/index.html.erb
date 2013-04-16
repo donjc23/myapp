@@ -1,0 +1,18 @@
+<h1>Listing posts</h1>
+
+<% @posts.each do |post| %>
+  <h3><%= post.title %></h3>
+  <p><%= post.content %>
+    <br>By: <%= post.name %>
+    <br>    
+    <%= link_to('Show', post, :class => 'btn btn-mini') %>
+    <%= link_to('Edit', edit_post_path(post), :class => 'btn btn-mini') %>
+    <%= link_to('Destroy', post, :method => :delete, data: { confirm: 'Are you sure?' }, 
+      :class => 'btn btn-mini') %>
+   </p>
+<% end %>
+
+
+<br />
+
+<%= link_to('New Post', new_post_path, :class => 'btn btn-mini') %>
